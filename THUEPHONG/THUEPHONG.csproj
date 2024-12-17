@@ -28,7 +28,7 @@
     <InstallUrl>http://localhost/THUEPHONG/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -104,11 +104,29 @@
     <Compile Include="frmCoSo.Designer.cs">
       <DependentUpon>frmCoSo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDatPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatPhong.Designer.cs">
+      <DependentUpon>frmDatPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDichVu.Designer.cs">
+      <DependentUpon>frmDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDonVi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDonVi.Designer.cs">
       <DependentUpon>frmDonVi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoaiPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoaiPhong.Designer.cs">
+      <DependentUpon>frmLoaiPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -116,16 +134,70 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhong.Designer.cs">
+      <DependentUpon>frmPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQlyKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQlyKhachHang.Designer.cs">
+      <DependentUpon>frmQlyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQlyTang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQlyTang.Designer.cs">
+      <DependentUpon>frmQlyTang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThietBi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThietBi.Designer.cs">
+      <DependentUpon>frmThietBi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThietBiPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThietBiPhong.Designer.cs">
+      <DependentUpon>frmThietBiPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCoSo.resx">
       <DependentUpon>frmCoSo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDatPhong.resx">
+      <DependentUpon>frmDatPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDichVu.resx">
+      <DependentUpon>frmDichVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDonVi.resx">
       <DependentUpon>frmDonVi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLoaiPhong.resx">
+      <DependentUpon>frmLoaiPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhong.resx">
+      <DependentUpon>frmPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQlyKhachHang.resx">
+      <DependentUpon>frmQlyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQlyTang.resx">
+      <DependentUpon>frmQlyTang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThietBi.resx">
+      <DependentUpon>frmThietBi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThietBiPhong.resx">
+      <DependentUpon>frmThietBiPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

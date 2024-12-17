@@ -52,11 +52,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoSo.cs" />
+    <Compile Include="DatPhong.cs" />
+    <Compile Include="DichVu.cs" />
     <Compile Include="DonVi.cs" />
     <Compile Include="Func.cs" />
+    <Compile Include="KhachHang.cs" />
+    <Compile Include="LoaiPhong.cs" />
     <Compile Include="Phong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tang.cs" />
+    <Compile Include="ThietBi.cs" />
+    <Compile Include="ThietBiPhong.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">

@@ -43,6 +43,8 @@ namespace THUEPHONG
             Connect conn = new Connect(enCryptServer, enCryptUser, enCryptPassword, enCryptDatabase);
             conn.ConnectData(); // Tạo file connectdb.dba
 
+            
+
             //}
             _tang = new Tang();
             _phong = new Phong();
@@ -98,6 +100,48 @@ namespace THUEPHONG
                     {
                         frmDonVi frmdovi = new frmDonVi();
                         frmdovi.ShowDialog();
+                        break;
+                    }
+                case "TANG":
+                    {
+                        frmQlyTang frmtang = new frmQlyTang();
+                        frmtang.ShowDialog();
+                        break;
+                    }
+                case "PHONG":
+                    {
+                        frmPhong frmphong = new frmPhong();
+                        frmphong.ShowDialog();
+                        break;
+                    }
+                case "LOAIPHONG":
+                    {
+                        frmLoaiPhong frmloaiphong = new frmLoaiPhong();
+                        frmloaiphong.ShowDialog();
+                        break;
+                    }
+                case "DICHVU":
+                    {
+                        frmDichVu frmdichvu = new frmDichVu();
+                        frmdichvu.ShowDialog();
+                        break;
+                    }
+                case "KHACHHANG":
+                    {
+                        frmQlyKhachHang frmkh = new frmQlyKhachHang();
+                        frmkh.ShowDialog();
+                        break;
+                    }
+                case "THIETBI":
+                    {
+                        frmThietBi frmtb = new frmThietBi();
+                        frmtb.ShowDialog();
+                        break;
+                    }
+                case "PHONG_THIETBI":
+                    {
+                        frmThietBiPhong frmtbp = new frmThietBiPhong();
+                        frmtbp.ShowDialog();
                         break;
                     }
             }

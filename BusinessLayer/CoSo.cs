@@ -57,7 +57,6 @@ namespace BusinessLayer
             _coso.Email = coso.Email;
             _coso.DiaChi = coso.DiaChi;
             _coso.Disabled = coso.Disabled;
-
             try
             {
                 db.SaveChanges();

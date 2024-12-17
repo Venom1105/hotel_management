@@ -13,42 +13,40 @@ using System.Windows.Forms;
 
 namespace THUEPHONG
 {
-    public partial class frmCoSo : DevExpress.XtraEditors.XtraForm
+    public partial class frmQlyKhachHang : DevExpress.XtraEditors.XtraForm
     {
-        public frmCoSo()
+        public frmQlyKhachHang()
         {
             InitializeComponent();
         }
 
-        //Bảng không có khóa ngoại
-
-        CoSo _coso;
+        KhachHang _khachhang;
         bool _add;
-        string _idCoSo;
-        private void frmCoSo_Load(object sender, EventArgs e)
+        string _idKH;
+
+        private void frmQlyKhachHang_Load(object sender, EventArgs e)
         {
-            _coso = new CoSo();
+            _khachhang = new KhachHang();
             loadData();
             showHiddenControl(true);
             _enabled(false);
-            txtIDCoSo.Enabled = false;
+            txtID.Enabled = false;
         }
 
-        //hàm hiển thị các button thêm xóa sửa lưu..... khi cần
         void showHiddenControl(bool sh)
         {
-            toolStripBtnAddCoSo.Visible = sh;
-            toolStripBtnXoaCoSo.Visible = sh;
-            toolStripBtnUpdateCoSo.Visible = sh;
-            toolStripBtnSaveCoSo.Visible = !sh;
+            toolStripBtnAdd.Visible = sh;
+            toolStripBtnXoa.Visible = sh;
+            toolStripBtnUpdate.Visible = sh;
+            toolStripBtnSave.Visible = !sh;
             toolStripBtnSkip.Visible = !sh;
-            toolStripBtnExit.Visible = sh;
         }
 
         //Ẩn hiện thông tin
         void _enabled(bool ena)
         {
-            txtTenCoSo.Enabled = ena;
+            txtHoTen.Enabled = ena;
+            txtCCCD.Enabled = ena;
             txtDienThoai.Enabled = ena;
             txtEmail.Enabled = ena;
             txtDiaChi.Enabled = ena;
@@ -56,10 +54,10 @@ namespace THUEPHONG
         }
 
         //reset lại các textbox sau khi thêm xóa sửa...
-        void _reset() 
+        void _reset()
         {
-            txtIDCoSo.Text = "";
-            txtTenCoSo.Text = "";
+            txtID.Text = "";
+            txtHoTen.Text = "";
             txtDienThoai.Text = "";
             txtEmail.Text = "";
             txtDiaChi.Text = "";
@@ -68,59 +66,61 @@ namespace THUEPHONG
 
         void loadData()
         {
-            gridControlDanhSach.DataSource = _coso.getAll();
+            gridControlDanhSach.DataSource = _khachhang.getAll();
             //set data ko đc chỉnh sửa trên lưới
             gridViewDanhSach.OptionsBehavior.Editable = false;
         }
 
-        private void toolStripBtnAddCoSo_Click(object sender, EventArgs e)
+        private void toolStripBtnAdd_Click(object sender, EventArgs e)
         {
             _add = true;
-            txtIDCoSo.Enabled = true; //thêm mới dùng đc idcoso
+            txtID.Enabled = true; //thêm mới dùng đc idcoso
             showHiddenControl(false);
             _enabled(true);
             _reset();
         }
 
-        private void toolStripBtnXoaCoSo_Click(object sender, EventArgs e)
+        private void toolStripBtnXoa_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _coso.deleteCoSo(_idCoSo);
+                _khachhang.delete(_idKH);
             }
             loadData();
         }
 
-        private void toolStripBtnUpdateCoSo_Click(object sender, EventArgs e)
+        private void toolStripBtnUpdate_Click(object sender, EventArgs e)
         {
             _add = false;
-            txtIDCoSo.Enabled = false; //ko đc sửa idcoso
+            txtID.Enabled = false; //ko đc sửa idcoso
             showHiddenControl(false);
             _enabled(true);
         }
 
-        private void toolStripBtnSaveCoSo_Click(object sender, EventArgs e)
+        private void toolStripBtnSave_Click(object sender, EventArgs e)
         {
             if (_add)
             {
-                COSO coso = new COSO();
-                coso.IDCoSo = txtIDCoSo.Text;
-                coso.TenCoSo = txtTenCoSo.Text;
-                coso.DienThoai = txtDienThoai.Text;
-                coso.Email = txtEmail.Text;
-                coso.DiaChi = txtDiaChi.Text;
-                coso.Disabled = chbDisabled.Checked;
-                _coso.addCoSo(coso);
+                KHACHHANG khachhang = new KHACHHANG();
+                khachhang.IDKhachHang = txtID.Text;
+                khachhang.CCCD = txtCCCD.Text;
+                khachhang.HoTen = txtHoTen.Text;
+                khachhang.DienThoai = txtDienThoai.Text;
+                khachhang.Email = txtEmail.Text;
+                khachhang.DiaChi = txtDiaChi.Text;
+                khachhang.Disabled = chbDisabled.Checked;
+                _khachhang.add(khachhang);
             }
             else
             {
-                COSO coso = _coso.getItem(_idCoSo);
-                coso.TenCoSo = txtTenCoSo.Text;
-                coso.DienThoai = txtDienThoai.Text;
-                coso.Email = txtEmail.Text;
-                coso.DiaChi = txtDiaChi.Text;
-                coso.Disabled = chbDisabled.Checked; 
-                _coso.updateCoSo(coso);
+                KHACHHANG khachhang = _khachhang.getItem(_idKH);
+                khachhang.HoTen = txtHoTen.Text;
+                khachhang.CCCD = txtCCCD.Text;
+                khachhang.DienThoai = txtDienThoai.Text;
+                khachhang.Email = txtEmail.Text;
+                khachhang.DiaChi = txtDiaChi.Text;
+                khachhang.Disabled = chbDisabled.Checked;
+                _khachhang.update(khachhang);
             }
             _add = false; //đảm bảo khi thêm hoặc sửa có nhấn thì quay về như cũ
             loadData(); //cập nhật lại data
@@ -133,24 +133,18 @@ namespace THUEPHONG
         {
             _add = false;
             showHiddenControl(true);
-            txtIDCoSo.Enabled = false;
+            txtID.Enabled = false;
             _enabled(false);
         }
 
-        private void toolStripBtnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //hiện dữ liệu lên các textbox
         private void gridViewDanhSach_Click(object sender, EventArgs e)
         {
-            //kiểm tra có dữ liệu không
             if (gridViewDanhSach.RowCount > 0)
             {
-                _idCoSo = gridViewDanhSach.GetFocusedRowCellValue("IDCoSo").ToString();
-                txtIDCoSo.Text = gridViewDanhSach.GetFocusedRowCellValue("IDCoSo").ToString();
-                txtTenCoSo.Text = gridViewDanhSach.GetFocusedRowCellValue("TenCoSo").ToString();
+                _idKH = gridViewDanhSach.GetFocusedRowCellValue("IDKhachHang").ToString();
+                txtID.Text = gridViewDanhSach.GetFocusedRowCellValue("IDKhachHang").ToString();
+                txtCCCD.Text = gridViewDanhSach.GetFocusedRowCellValue("CCCD").ToString();
+                txtHoTen.Text = gridViewDanhSach.GetFocusedRowCellValue("HoTen").ToString();
                 txtDienThoai.Text = gridViewDanhSach.GetFocusedRowCellValue("DienThoai").ToString();
                 txtEmail.Text = gridViewDanhSach.GetFocusedRowCellValue("Email").ToString();
                 txtDiaChi.Text = gridViewDanhSach.GetFocusedRowCellValue("DiaChi").ToString();
